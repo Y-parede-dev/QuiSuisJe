@@ -2,6 +2,7 @@ const Game = document.getElementById("Game");
 const ResetBtn = document.getElementById("resetBtn");
 const CreateGameBtn = document.getElementById("createGame")
 const Loader = document.getElementById("loader")
+let storageRef = firebase.storage.ref("images");
 // import * as images from "/public/Assets/images"
 // console.log(images)
 // import images from '../Assets/images'
@@ -15,6 +16,10 @@ const Loader = document.getElementById("loader")
 // dirImages.forEach(image=>{
 //     console.log(image)
 // })
+console.log(storageRef)
+// fetch("gs://quisuisje-95869.appspot.com")
+//     .then(res=>res.json())
+//     .then(res=> console.log(res))
 let DataApi = [];
 const myHeaders = new Headers();
 
