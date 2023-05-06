@@ -41,11 +41,33 @@ li.people p {
 img.people_img {
     object-fit: cover;
     margin: auto;
-    width: 190px;
-    height: 190px;
+    aspect-ratio:1/1;
+    width: 100%;
+    // height: 190px;
 }
 .people_down {
     transform: translateY(140px);
+}
+@media screen and (max-width: 1100px) {
+    main {
+        /* position: absolute; */
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+    ul.list_peoples {
+       
+        grid-template-columns: repeat(5, 1fr);
+      
+    }
+    // img.people_img {
+       
+    //     height: 110px;
+    //     width: 110px;
+    // }
+    .people_down {
+        transform: translateY(80px);
+    }
 }
 @media screen and (max-width: 800px) {
     main {
@@ -61,11 +83,11 @@ img.people_img {
         grid-template-columns: repeat(3, 1fr);
         gap:1.9rem 1rem;
     }
-    img.people_img {
+    // img.people_img {
        
-        height: 110px;
-        width: 110px;
-    }
+    //     height: 110px;
+    //     width: 110px;
+    // }
     .people_down {
         transform: translateY(80px);
     }
