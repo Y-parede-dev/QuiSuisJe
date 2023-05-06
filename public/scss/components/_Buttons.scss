@@ -1,0 +1,47 @@
+button {
+    padding: 8px 10px;
+    text-align: center;
+}
+button#createGame {
+    background-size: 200%;
+    background: linear-gradient(
+        to right,
+        var(--secondary_color),
+        white,
+        var(--secondary_color));
+    /* background: var(--secondary_color); */
+    color: var(--primary_color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    top: calc(50% - 22px);
+    bottom: calc(50% - 22px);
+    left: calc(50% - 96.46px);
+    right: calc(50% - 96.46px);
+    width: max-content;
+    height: fit-content;
+    transition: 600ms;
+    /*     
+    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center; */
+}
+button#createGame:hover {
+    background-position: right;
+    /* animation: 600ms hovBtn2 200ms ease-in-out; */
+    animation-iteration-count: 1;
+    /* transition: 600ms; */
+   
+    /* color: var(--secondary_color);
+    background: var(--primary_color); */
+
+}
+button#resetBtn {
+    position: absolute;
+    top: 25px;
+    left: 10px
+}

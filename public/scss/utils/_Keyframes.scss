@@ -1,0 +1,44 @@
+@keyframes loadOpacity {
+    from {
+        font-size: 8.9rem;
+        opacity: 0;
+    } to {
+        font-size: 3.9rem;
+
+        opacity: 1;
+    }
+}
+@keyframes hovBtn {
+    from {
+        background: var(--secondary_color);
+        color: var(--primary_color);
+    } to{
+        color: var(--secondary_color);
+        background: var(--primary_color);
+    }
+}
+@keyframes hovBtn2 {
+    from {
+        background: linear-gradient(
+        to right,
+        var(--secondary_color),
+        white,
+        var(--secondary_color));
+        color: var(--primary_color);
+    } to{
+        color: var(--primary_color);
+        background: linear-gradient(
+        to left,
+        var(--secondary_color),
+        var(--secondary_color),
+        white);
+    }
+}
+@keyframes peopleDown {
+    from{
+        
+    }
+    to{
+        
+    }
+}

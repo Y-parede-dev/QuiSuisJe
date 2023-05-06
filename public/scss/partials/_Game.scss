@@ -1,0 +1,69 @@
+main {
+    /* position: absolute; */
+    margin: auto;
+    width: 100%;
+    height: calc(100% - 177px);
+}
+section.container_game {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.container_game, .Game {
+    width: 100%;
+}
+.Game {
+    display: flex;
+}
+ul.list_peoples {
+    width: calc(100vw - 250px);height: fit-content;
+    border: 2.5rem solid red;
+    background-color: red;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap:2.5rem 1rem;
+}
+
+li.people {
+    background: white;
+    color: blue;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+li.people p {
+    color: black;
+    text-align: center;
+}
+img.people_img {
+    object-fit: cover;
+    margin: auto;
+    width: 190px;
+    height: 190px;
+}
+.people_down {
+    transform: translateY(140px);
+}
+@media screen and (max-width: 800px) {
+    main {
+        /* position: absolute; */
+        margin: auto;
+        width: 100%;
+        height: calc(100% - 80px);
+    }
+    ul.list_peoples {
+        width: 100vw ;height: fit-content;
+        border: 2.5rem solid red;
+        
+        grid-template-columns: repeat(3, 1fr);
+        gap:1.9rem 1rem;
+    }
+    img.people_img {
+       
+        height: 110px;
+        width: 110px;
+    }
+}

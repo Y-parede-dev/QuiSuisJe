@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@keyframes loadOpacity {
+  from {
+    font-size: 8.9rem;
+    opacity: 0;
+  }
+  to {
+    font-size: 3.9rem;
+    opacity: 1;
+  }
+}
+@keyframes hovBtn {
+  from {
+    background: var(--secondary_color);
+    color: var(--primary_color);
+  }
+  to {
+    color: var(--secondary_color);
+    background: var(--primary_color);
+  }
+}
+@keyframes hovBtn2 {
+  from {
+    background: linear-gradient(to right, var(--secondary_color), white, var(--secondary_color));
+    color: var(--primary_color);
+  }
+  to {
+    color: var(--primary_color);
+    background: linear-gradient(to left, var(--secondary_color), var(--secondary_color), white);
+  }
+}
+@keyframes peopleDown {}
+:root {
+  --primary_color: rgb(49, 48, 48);
+  --secondary_color: rgb(12, 228, 243);
+}
+
+#loader {
+  z-index: 99;
+  position: absolute;
+  background: var(--primary_color);
+  height: 100%;
+  width: 100%;
+}
+
+.Loader_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadElt {
+  text-transform: uppercase;
+  opacity: 0;
+  animation: loadOpacity 1400ms infinite linear;
+  font-size: 2.9rem;
+}
+.loadElt:nth-child(1) {
+  animation-delay: 100ms;
+}
+.loadElt:nth-child(2) {
+  animation-delay: 200ms;
+}
+.loadElt:nth-child(3) {
+  animation-delay: 300ms;
+}
+.loadElt:nth-child(4) {
+  animation-delay: 400ms;
+}
+.loadElt:nth-child(5) {
+  animation-delay: 500ms;
+}
+.loadElt:nth-child(6) {
+  animation-delay: 600ms;
+}
+.loadElt:nth-child(7) {
+  animation-delay: 700ms;
+}
+
+button {
+  padding: 8px 10px;
+  text-align: center;
+}
+
+button#createGame {
+  background-size: 200%;
+  background: linear-gradient(to right, var(--secondary_color), white, var(--secondary_color));
+  /* background: var(--secondary_color); */
+  color: var(--primary_color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  top: calc(50% - 22px);
+  bottom: calc(50% - 22px);
+  left: calc(50% - 96.46px);
+  right: calc(50% - 96.46px);
+  width: max-content;
+  height: fit-content;
+  transition: 600ms;
+  /*     
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center; */
+}
+
+button#createGame:hover {
+  background-position: right;
+  /* animation: 600ms hovBtn2 200ms ease-in-out; */
+  animation-iteration-count: 1;
+  /* transition: 600ms; */
+  /* color: var(--secondary_color);
+  background: var(--primary_color); */
+}
+
+button#resetBtn {
+  position: absolute;
+  top: 25px;
+  left: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family:'Courier New', Courier, monospace; */
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  top: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body, header, footer {
+  background: var(--primary_color);
+  color: var(--secondary_color);
+}
+
+header, footer {
+  z-index: 2;
+  padding: 20px;
+}
+
+header h1, footer p {
+  text-align: center;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: sticky;
+  border-bottom: var(--secondary_color) solid 2px;
+}
+
+footer {
+  border-top: var(--secondary_color) solid 2px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+main {
+  /* position: absolute; */
+  margin: auto;
+  width: 100%;
+  height: calc(100% - 177px);
+}
+
+section.container_game {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.container_game, .Game {
+  width: 100%;
+}
+
+.Game {
+  display: flex;
+}
+
+ul.list_peoples {
+  width: calc(100vw - 250px);
+  height: fit-content;
+  border: 2.5rem solid red;
+  background-color: red;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2.5rem 1rem;
+}
+
+li.people {
+  background: white;
+  color: blue;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+li.people p {
+  color: black;
+  text-align: center;
+}
+
+img.people_img {
+  object-fit: cover;
+  margin: auto;
+  width: 190px;
+  height: 190px;
+}
+
+.people_down {
+  transform: translateY(140px);
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    /* position: absolute; */
+    margin: auto;
+    width: 100%;
+    height: calc(100% - 80px);
+  }
+  ul.list_peoples {
+    width: 100vw;
+    height: fit-content;
+    border: 2.5rem solid red;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.9rem 1rem;
+  }
+  img.people_img {
+    height: 110px;
+    width: 110px;
+  }
+}
+/* juste pour test  */
+/* main {
+    filter: contrast(50%);
+    background: white;
+    height: 2900px;
+} */
+
+/*# sourceMappingURL=Global.css.map */

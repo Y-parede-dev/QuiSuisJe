@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family:'Courier New', Courier, monospace; */
+}
+html, body {
+    height: 100%;width: 100%;
+}
+body{
+    position: relative;
+    top: 0;
+    
+    font-family: 'Montserrat', sans-serif;
+}
+body, header, footer {
+    background: var(--primary_color);
+    color: var(--secondary_color);
+}
+header, footer {
+    z-index: 2;
+    padding: 20px;
+}
+header h1, footer p {
+    text-align: center;
+}
