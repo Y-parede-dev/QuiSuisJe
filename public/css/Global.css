@@ -232,18 +232,22 @@ img.people_img {
     /* position: absolute; */
     margin: auto;
     width: 100%;
-    height: calc(100% - 80px);
+    height: 100%;
   }
   ul.list_peoples {
     width: 100vw;
     height: fit-content;
     border: 2.5rem solid red;
+    padding-bottom: 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.9rem 1rem;
   }
   img.people_img {
     height: 110px;
     width: 110px;
+  }
+  .people_down {
+    transform: translateY(80px);
   }
 }
 /* juste pour test  */
