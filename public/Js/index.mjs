@@ -1,6 +1,7 @@
 const HOST = location.origin.replace(/^http/, 'ws')
 const myHeaders = new Headers();
 const ws = new WebSocket(`${HOST}/ws`);
+console.log(ws.url)
 const Game = document.getElementById("Game");
 const ResetBtn = document.getElementById("resetBtn");
 const CreateGameBtn = document.getElementById("createGame")

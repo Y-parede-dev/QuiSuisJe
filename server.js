@@ -23,16 +23,16 @@ expressWs(server);
 //   cert: certificate,
 //   ca: ca
 // };
-const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
+// const authMiddleware = (req, res, next) => {
+//   const authHeader = req.headers['authorization'];
+//   const token = authHeader && authHeader.split(' ')[1];
   
-  if (token === process.env.TOKEN) { // Vérifiez si le token est valide
-    next();
-  } else {
-    res.status(401).send('Unauthorized');
-  }
-}
+//   if (token === process.env.TOKEN) { // Vérifiez si le token est valide
+//     next();
+//   } else {
+//     res.status(401).send('Unauthorized');
+//   }
+// }
 publicDir.forEach(file=>{
     tt.push({name:file});
 });
@@ -78,9 +78,9 @@ wsRouter.ws('/ws', (ws, req) => {
 
 
 // Route privée
-wsRouter.get('/private', authMiddleware, (req, res) => {
-  res.send('This is a private route');
-});
+// wsRouter.get('/private', authMiddleware, (req, res) => {
+//   res.send('This is a private route');
+// });
 wsRouter.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
