@@ -6,7 +6,7 @@ const Game = document.getElementById("Game");
 const ResetBtn = document.getElementById("resetBtn");
 const CreateGameBtn = document.getElementById("createGame")
 const Loader = document.getElementById("loader")
-
+let countForChoice = 0
 
 let DataApi = [];
 
@@ -59,12 +59,11 @@ ResetBtn.addEventListener('click', () => {
 const url = "/public/Assets/images"
 
 
-CreateGameBtn.addEventListener('click', () => {
+CreateGameBtn.addEventListener('click', (e) => {
     
     ws.send('getGameData');
 
     ws.addEventListener('message', function (event) {
-        console.log(event)
         const data = JSON.parse(event.data);
         const srcImg = data.map((e) => e.name);
         let nameEltFinal = ""
@@ -72,7 +71,6 @@ CreateGameBtn.addEventListener('click', () => {
             let name_e = e.name.replace('.webp', "")
             // name_e = JSON.stringify(name_e)
             name_e.split('').forEach((elt)=>{
-                console.log(elt)
                 if(elt.includes('_')) {
                     return nameEltFinal
                     // alert(elt)
@@ -89,7 +87,6 @@ CreateGameBtn.addEventListener('click', () => {
         });
         CreateGameBtn.remove();
         createGameBoard(Game, name, srcImg);
-        console.log(srcImg);
     })
     
     ws.onclose = () => {
@@ -113,7 +110,7 @@ const createGameBoard = (parent, name, srcImg) => {
         LI.classList.add(`people_${i}`)
         P.textContent =`${name[i]}`
         P.classList.add('name_people')
-        selectPeople(IMG)
+        selectPeople(IMG, UL)
         DIV.appendChild(IMG)
         DIV.appendChild(P)
         LI.appendChild(DIV)
@@ -122,8 +119,20 @@ const createGameBoard = (parent, name, srcImg) => {
     UL.classList.add("list_peoples")
     parent.appendChild(UL)
 }
-const selectPeople = (elt) => {
-    elt.addEventListener('click', () => {
+const selectPeople = (elt, parent) => {
+    
+    elt.addEventListener('click', (item) => {
+        if(countForChoice<1){
+            const urlImgChoice = item.target.src
+            const containerImageChoice = document.createElement('DIV')
+            const imageChoice = document.createElement('IMG')
+            containerImageChoice.classList.add('container-img-choice')
+            imageChoice.src = urlImgChoice
+            containerImageChoice.appendChild(imageChoice)
+            parent.appendChild(containerImageChoice)
+            countForChoice++
+            return
+        }
         if(elt.classList.contains('people_down')){
             elt.classList.remove('people_down')
 
