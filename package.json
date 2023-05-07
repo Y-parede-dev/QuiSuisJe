@@ -1,6 +1,6 @@
 {
   "name": "quisuisje",
-  "version": "0.1.0",
+  "version": "0.5.1",
   "description": "Jeux qui suis-je full js",
   "main": "server.js",
   "scripts": {

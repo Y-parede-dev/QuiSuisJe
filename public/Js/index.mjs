@@ -70,7 +70,7 @@ CreateGameBtn.addEventListener('click', () => {
         let nameEltFinal = ""
         const name = data.map((e) => {
             let name_e = e.name.replace('.webp', "")
-            name_e = JSON.stringify(name_e)
+            // name_e = JSON.stringify(name_e)
             name_e.split('').forEach((elt)=>{
                 console.log(elt)
                 if(elt.includes('_')) {
