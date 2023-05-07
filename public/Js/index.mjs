@@ -119,17 +119,28 @@ const createGameBoard = (parent, name, srcImg) => {
     UL.classList.add("list_peoples")
     parent.appendChild(UL)
 }
+const showPeopleToggle = (elt, container) => {
+    elt.addEventListener('click',(e)=>{
+        elt.classList.toggle('arow_revers')
+        container.classList.toggle('show_selected_people')
+    })
+}
 const selectPeople = (elt, parent) => {
     
     elt.addEventListener('click', (item) => {
         if(countForChoice<1){
             const urlImgChoice = item.target.src
             const containerImageChoice = document.createElement('DIV')
+            const arrow = document.createElement('BUTTON')
+            arrow.textContent='<'
+            arrow.classList.add('btn_show_people_choice')
             const imageChoice = document.createElement('IMG')
             containerImageChoice.classList.add('container-img-choice')
             imageChoice.src = urlImgChoice
+            containerImageChoice.appendChild(arrow)
             containerImageChoice.appendChild(imageChoice)
             parent.appendChild(containerImageChoice)
+            showPeopleToggle(arrow, containerImageChoice)
             countForChoice++
             return
         }

@@ -267,18 +267,37 @@ img.people_img {
 }
 
 .container-img-choice {
+  transform: translateX(167px);
   z-index: 3;
   position: fixed;
   top: 250px;
   right: 25px;
+  top: 120px;
+  height: 208px;
+  right: 0px;
+  background: white;
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  height: 100;
+  gap: 1rem;
 }
 .container-img-choice > img {
-  filter: blur(99px);
   width: 150px;
   aspect-ratio: 1/1;
 }
-.container-img-choice > img:hover {
-  filter: none;
+
+.arow_revers {
+  transform: rotateZ(180deg);
+}
+
+.show_selected_people {
+  transform: translateX(0);
+}
+
+.btn_show_people_choice {
+  border: none;
+  background: transparent;
 }
 
 @media screen and (max-width: 1100px) {
