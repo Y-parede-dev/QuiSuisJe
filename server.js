@@ -8,7 +8,12 @@ const expressWs = require('express-ws')
 const WebSocket = require('ws');
 const publicDir = fs.readdirSync(__dirname + "/public/Assets/images");
 let tt = [];
-
+const pingServer = (url) => {
+    fetch(url)
+    .then(res => console.log('Ping réussi !'))
+    .catch(err => console.error('Erreur lors du ping:', err));
+  setTimeout(pingServer, 59545);
+  }
 expressWs(server);
 
 publicDir.forEach(file=>{
@@ -16,6 +21,7 @@ publicDir.forEach(file=>{
 });
 
 router.get('/', (req,res)=>{
+    
     res.sendFile(__dirname + '/public/index.html');
 });
 
@@ -60,5 +66,5 @@ wsRouter.get('/', (req, res) => {
 server.use(wsRouter);
 
 const port = process.env.PORT || 437;
-
+pingServer("https://blooming-bastion-76768.herokuapp.com/")
 server.listen(port, ()=> {console.log('Serveur ouvert sur le port ' + port)});
