@@ -67,9 +67,28 @@ CreateGameBtn.addEventListener('click', () => {
         console.log(event)
         const data = JSON.parse(event.data);
         const srcImg = data.map((e) => e.name);
-
+        let nameEltFinal = ""
+        const name = data.map((e) => {
+            let name_e = e.name.replace('.webp', "")
+            name_e = JSON.stringify(name_e)
+            name_e.split('').forEach((elt)=>{
+                console.log(elt)
+                if(elt.includes('_')) {
+                    return nameEltFinal
+                    // alert(elt)
+                }
+                if(!elt.includes('-')){
+                    nameEltFinal = elt
+                }else{
+                    nameEltFinal += ' '
+                }
+               
+                return nameEltFinal   
+                })
+            return name_e
+        });
         CreateGameBtn.remove();
-        createGameBoard(Game, url, srcImg);
+        createGameBoard(Game, name, srcImg);
         console.log(srcImg);
     })
     
@@ -79,7 +98,8 @@ CreateGameBtn.addEventListener('click', () => {
     }
 })
 
-const createGameBoard = (parent, urlBase, srcImg) => {
+const createGameBoard = (parent, name, srcImg) => {
+   console.log(name)
     const UL = document.createElement("UL");
     for(let i=0;i<24;i++){
         const LI = document.createElement("LI");
@@ -91,8 +111,9 @@ const createGameBoard = (parent, urlBase, srcImg) => {
         IMG.src = srcImg[i]
         LI.classList.add('people')
         LI.classList.add(`people_${i}`)
-        P.textContent =`people__${i}`
-        selectPeople(DIV)
+        P.textContent =`${name[i]}`
+        P.classList.add('name_people')
+        selectPeople(IMG)
         DIV.appendChild(IMG)
         DIV.appendChild(P)
         LI.appendChild(DIV)

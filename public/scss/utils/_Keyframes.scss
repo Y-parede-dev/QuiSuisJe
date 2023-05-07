@@ -1,6 +1,6 @@
 @keyframes loadOpacity {
     from {
-        font-size: 8.9rem;
+        font-size: var(--font-size-max-laytop);
         opacity: 0;
     } to {
         font-size: 3.9rem;
@@ -35,10 +35,10 @@
     }
 }
 @keyframes peopleDown {
-    from{
-        
+    0%,33%{
+        transform: translateY(-10px);
     }
     to{
-        
+        transform: translateY(140px);
     }
 }
