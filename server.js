@@ -3,6 +3,9 @@ const fs = require('fs');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const router = express.Router();
+// const privateKey = fs.readdirSync(`${__dirname}/private/certificat.pem`, "utf-8")
+// const certificate = fs.readdirSync(`${__dirname}/private/certificat.pem`, "utf-8")
+// const ca = fs.readdirSync(`${__dirname}/private/certificat.pem`, "utf-8")
 const server = express();
 const expressWs = require('express-ws')
 const WebSocket = require('ws');
@@ -15,7 +18,21 @@ const pingServer = (url) => {
   setTimeout(pingServer, 59545);
   }
 expressWs(server);
-
+// const credentials = {
+//   key: privateKey,
+//   cert: certificate,
+//   ca: ca
+// };
+const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  
+  if (token === process.env.TOKEN) { // Vérifiez si le token est valide
+    next();
+  } else {
+    res.status(401).send('Unauthorized');
+  }
+}
 publicDir.forEach(file=>{
     tt.push({name:file});
 });
@@ -59,6 +76,11 @@ wsRouter.ws('/ws', (ws, req) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
+
+// Route privée
+wsRouter.get('/private', authMiddleware, (req, res) => {
+  res.send('This is a private route');
+});
 wsRouter.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
@@ -66,5 +88,5 @@ wsRouter.get('/', (req, res) => {
 server.use(wsRouter);
 
 const port = process.env.PORT || 437;
-pingServer("https://blooming-bastion-76768.herokuapp.com/")
+// pingServer("https://blooming-bastion-76768.herokuapp.com/")
 server.listen(port, ()=> {console.log('Serveur ouvert sur le port ' + port)});
