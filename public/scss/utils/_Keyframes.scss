@@ -8,35 +8,35 @@
         opacity: 1;
     }
 }
-@keyframes hovBtn {
-    from {
-        background: var(--secondary_color);
-        color: var(--primary_color);
-    } to{
-        color: var(--secondary_color);
-        background: var(--primary_color);
-    }
-}
-@keyframes hovBtn2 {
-    from {
-        background: linear-gradient(
-        to right,
-        var(--secondary_color),
-        white,
-        var(--secondary_color));
-        color: var(--primary_color);
-    } to{
-        color: var(--primary_color);
-        background: linear-gradient(
-        to left,
-        var(--secondary_color),
-        var(--secondary_color),
-        white);
-    }
-}
+// @keyframes hovBtn {
+//     from {
+//         background: var(--secondary_color);
+//         color: var(--primary_color);
+//     } to{
+//         color: var(--secondary_color);
+//         background: var(--primary_color);
+//     }
+// }
+// @keyframes hovBtn2 {
+//     from {
+//         background: linear-gradient(
+//         to right,
+//         var(--secondary_color),
+//         white,
+//         var(--secondary_color));
+//         color: var(--primary_color);
+//     } to{
+//         color: var(--primary_color);
+//         background: linear-gradient(
+//         to left,
+//         var(--secondary_color),
+//         var(--secondary_color),
+//         white);
+//     }
+// }
 @keyframes peopleDown {
     0%,33%{
-        transform: translateY(-10px);
+        transform: translateY(-4px);
     }
     to{
         transform: translateY(140px);

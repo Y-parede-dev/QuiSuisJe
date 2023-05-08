@@ -1,5 +1,4 @@
 main {
-    /* position: absolute; */
     margin: auto;
     width: 100%;
     height: calc(100% - 177px);
@@ -18,83 +17,99 @@ section.container_game {
 }
 ul.list_peoples {
     width: calc(100vw - 500px);height: fit-content;
-    border: 2.5rem solid red;
-    background-color: red;
+    padding: 2.5rem;
+    background-color: var(--third_color);
     margin: auto;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap:2.5rem 1rem;
 }
-
 li.people {
-    background: white;
-    color: blue;
+    border:solid;
     margin: auto;
     overflow: hidden;
     display: flex;
     justify-content: center;
 }
 .people_container {
-    background: darkred;
+    background: var(--quad_color);
     position: relative;
     padding: 5px;
     padding-bottom: 0;
 }
+
 .name_people{
-    color: $secondary_color!important;
-    background: var(--primary_color)!important;
+    color: var(--secondary_color);
+    background: var(--primary_color);
     position: relative;
-    color: black;
     text-align: center;
-    padding: 2.5px 0;
+    padding: 3.5px 0;
     margin: 0 -5px ;
 }
+
 img.people_img {
     cursor: pointer;
     object-fit: cover;
     margin: auto;
-    border-radius: 70px;
+    border-radius: 40px 40px 0 0;
     aspect-ratio: 1/1;
     width: 100%;
     transition-duration: 250ms;
+    margin-bottom: -8px;
 }
 .people_down {
     animation: 600ms peopleDown 200ms ease-out;
     transition-delay: 600ms;
-
-    transform: translateY(90px);
-
+    transform: translateY(123px);
 }
 .container-img-choice {
-    transform: translateX(179px);
+    transition-duration: 600ms;
+    transition-delay: 120ms;
+    transform: translateX(195px);
     z-index: 3;
     position: fixed;
     top: 120px;
     height: 208px;
     right: 0px;
-    background: white;
     padding: 0 11px 0 0;
     display: flex;
     align-items: center;
-    height: 100;
+    background-image: linear-gradient(90deg, var(--primary_color) 84%, var(--secondary_color));
     gap: 1rem;
-    &>img{
-        // filter: blur(99px);
-        width: 150px;
-        aspect-ratio: 1 / 1;
+    &>.border-l-grad-img{
+        padding: 9px;
+        border-radius: 50%;
+        background: linear-gradient(0deg,var(--secondary_color), var(--primary_color));
+        animation: spinPicture 200ms  infinite;
+        &>img{
+            display: flex;
+            width: 150px;
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+        }
     }
+}
+@keyframes spinPicture {
+    0% {
+        background: linear-gradient(0deg,var(--secondary_color), var(--primary_color));
+
+	}
+	100% {
+        background: linear-gradient(360deg,var(--secondary_color), var(--primary_color));
+
+	}
+	
+    
 }
 .arow_revers{
     transform: rotateZ(180deg);
 }
 .show_selected_people {
     box-shadow: -7px 7px 16px -4px black;
-
     transform: translateX(0);
 }
+
 .btn_show_people_choice {
-    
-    // font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
     border: none;
     background: rgb(77, 77, 77);
     height: 100%;
@@ -107,29 +122,19 @@ img.people_img {
         font-size: 2rem;
     }
 }
-// .material-symbols-outlined {
-//   font-variation-settings:
-//   'FILL' 0,
-//   'wght' 400,
-//   'GRAD' 0,
-//   'opsz' 48
-// }
+
 @media screen and (max-width: 1400px) {
-    
     ul.list_peoples {
         width: calc(100vw - 250px);
     }
-    
     .people_down {
         transform: translateY(70px);
     }
 }
 @media screen and (max-width: 1200px) {
     main {
-        /* position: absolute; */
         margin: auto;
         width: 100%;
-        // height: 100%;
     }
     ul.list_peoples {
         width: calc(100vw - 150px);
@@ -147,20 +152,12 @@ img.people_img {
    
 }
 @media screen and (max-width: 800px) {
- 
     ul.list_peoples {
         width: 70vw ;height: fit-content;
-        // margin: auto 15px;
-        border: 2.5rem solid red;
         padding-bottom: 50px;
         grid-template-columns: repeat(3, 1fr);
         gap:1.9rem 1rem;
     }
-    // img.people_img {
-       
-    //     height: 110px;
-    //     width: 110px;
-    // }
     .people_down {
         transform: translateY(50px);
     }
@@ -171,17 +168,10 @@ img.people_img {
     }
 }
 @media screen and (max-width: 350px) {
-    
     ul.list_peoples {
-        border: 1.5rem solid red;
         grid-template-columns: 1fr;
         gap:1rem;
     }
-    // img.people_img {
-       
-    //     height: 110px;
-    //     width: 110px;
-    // }
     .people_down {
         transform: translateY(132px);
     }

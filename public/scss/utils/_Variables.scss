@@ -1,7 +1,8 @@
-$secondary_color:rgb(12, 228, 243);
 :root {
     --primary_color: rgb(49, 48, 48);
     --secondary_color: rgb(12, 228, 243);
+    --third_color: steelblue;
+    --quad_color: slategrey;
     --font-size-max-laytop: 8.9rem;
 }
 @media screen and (max-width: 800px) {
