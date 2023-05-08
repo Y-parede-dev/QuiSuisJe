@@ -115,15 +115,19 @@ const selectPeople = (elt, parent) => {
             const backgroudImage = document.createElement('DIV')
             const arrow = document.createElement('BUTTON')
             const imageChoice = document.createElement('IMG')
+            const name = document.createElement('P')
 
             arrow.textContent='<'
             backgroudImage.classList.add('border-l-grad-img')
             arrow.classList.add('btn_show_people_choice')
             containerImageChoice.classList.add('container-img-choice')
+            name.classList.add('name-select_people')
+            name.textContent= elt.src.replaceAll('http://localhost:437/', "").replaceAll('.webp','')
             imageChoice.src = urlImgChoice
             containerImageChoice.appendChild(arrow)
             backgroudImage.appendChild(imageChoice)
             containerImageChoice.appendChild(backgroudImage)
+            containerImageChoice.appendChild(name)
             parent.appendChild(containerImageChoice)
 
             showPeopleToggle(arrow, containerImageChoice)
