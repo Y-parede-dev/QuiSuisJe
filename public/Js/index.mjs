@@ -8,12 +8,14 @@ const CreateGameBtn = document.getElementById("createGame")
 const Loader = document.getElementById("loader")
 let countForChoice = 0
 
-let DataApi = [];
+let DataApi = [];// a supprimé
 
-const myInit = { method: 'GET',
-                 headers: myHeaders,
-                 mode: 'cors',
-                 Cache: "no-cache" };
+const myInit = { 
+    method: 'GET',
+    headers: myHeaders,
+    mode: 'cors',
+    Cache: "no-cache" 
+};
 
 
 const loading = document.createElement('P');
@@ -67,28 +69,10 @@ CreateGameBtn.addEventListener('click', (e) => {
         const data = JSON.parse(event.data);
         const srcImg = data.map((e) => e.name);
         let nameEltFinal = ""
-        const name = data.map((e) => {
-            let name_e = e.name.replace('.webp', "")
-            // name_e = JSON.stringify(name_e)
-            name_e.split('').forEach((elt)=>{
-                if(elt.includes('_')) {
-                    return nameEltFinal
-                    // alert(elt)
-                }
-                if(!elt.includes('-')){
-                    nameEltFinal = elt
-                }else{
-                    nameEltFinal += ' '
-                }
-               
-                return nameEltFinal   
-                })
-            return name_e
-        });
+        const name = data.map((e) => e.name.replace('.webp', ""));
         CreateGameBtn.remove();
         createGameBoard(Game, name, srcImg);
     })
-    
     ws.onclose = () => {
         console.log('WebSocket closed');
         ws.close()
@@ -142,13 +126,15 @@ const selectPeople = (elt, parent) => {
             parent.appendChild(containerImageChoice)
             showPeopleToggle(arrow, containerImageChoice)
             countForChoice++
-            return
+            return            
         }
-        if(elt.classList.contains('people_down')){
-            elt.classList.remove('people_down')
+        elt.classList.toggle("people_down")
+        
+        // if(elt.classList.contains('people_down')){
+        //     elt.classList.remove('people_down')
 
-        }else{
-            elt.classList.add('people_down')
-        }
+        // }else{
+        //     elt.classList.add('people_down')
+        // }
     })
 }
