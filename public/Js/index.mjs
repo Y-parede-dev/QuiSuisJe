@@ -110,6 +110,12 @@ const showPeopleToggle = (elt, container) => {
 const selectPeople = (elt, parent) => {
     elt.addEventListener('click', (item) => {
         if(countForChoice<1){
+
+            const url = 'https://blooming-bastion-76768.herokuapp.com/';
+            const regex = /^(https?:\/\/[\w.-]+)$/;
+            const matches = url.match(regex);
+
+            console.log(matches[0]);
             const urlImgChoice = item.target.src
             const containerImageChoice = document.createElement('DIV')
             const backgroudImage = document.createElement('DIV')
@@ -122,7 +128,7 @@ const selectPeople = (elt, parent) => {
             arrow.classList.add('btn_show_people_choice')
             containerImageChoice.classList.add('container-img-choice')
             name.classList.add('name-select_people')
-            name.textContent= elt.src.replaceAll('http://localhost:437/', "").replaceAll('.webp','')
+            name.textContent= elt.src.includes(https)?elt.src.replaceAll('http://localhost:437/', "").replaceAll('.webp','') : elt.src.split('.com/')[1].replaceAll('.webp',"")
             imageChoice.src = urlImgChoice
             containerImageChoice.appendChild(arrow)
             backgroudImage.appendChild(imageChoice)
