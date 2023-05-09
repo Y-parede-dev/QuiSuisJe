@@ -1,10 +1,5 @@
-main {
-    margin: auto;
-    width: 100%;
-    height: calc(100% - 177px);
-}
+
 section.container_game {
-    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
@@ -14,12 +9,14 @@ section.container_game {
 }
 .Game {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 ul.list_peoples {
-    width: calc(100vw - 500px);height: fit-content;
+    width: calc(100vw - 500px);height: max-content;
     padding: 2.5rem;
     background-color: var(--third_color);
-    margin: auto;
+    // margin: auto;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap:2.5rem 1rem;
@@ -127,10 +124,6 @@ img.people_img {
     }
 }
 @media screen and (max-width: 1200px) {
-    main {
-        margin: auto;
-        width: 100%;
-    }
     ul.list_peoples {
         width: calc(100vw - 150px);
     }
@@ -143,11 +136,14 @@ img.people_img {
     ul.list_peoples {
         width: calc(100vw - 80px);
     }
-   
 }
 @media screen and (max-width: 800px) {
+    section.container_game {
+        height: max-content;
+    }
     ul.list_peoples {
-        width: 70vw ;height: fit-content;
+        width: 100vw ;
+        margin: 81px 0 61px;
         padding-bottom: 50px;
         grid-template-columns: repeat(3, 1fr);
         gap:1.9rem 1rem;

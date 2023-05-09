@@ -1,0 +1,11 @@
+{
+    "loader":{
+        "timout":{
+            "timming_timout":4160,
+            "timming_timout_quick":1386
+        }
+    },
+    "game":{
+        "people_choice":false
+    }
+}
