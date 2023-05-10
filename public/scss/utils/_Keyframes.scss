@@ -10,10 +10,13 @@
 }
 @keyframes peopleDown {
     0%,33%{
-        transform: translateY(-4px);
+        transform: translateY(var(--img-position-y-default));
+    }
+    70%{
+        transform: translateY(var(--img-position-y-middle));
     }
     to{
-        transform: translateY(140px);
+        transform: translateY(var(--img-position-y-bottom));
     }
 }
 @keyframes spinPicture {

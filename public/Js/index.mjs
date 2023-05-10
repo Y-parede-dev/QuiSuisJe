@@ -5,7 +5,7 @@ import createGameBoard from './gameFonctions/gameStart.mjs';
 
 const HOST = location.origin.replace(/^http/, 'ws')
 const ws = new WebSocket(`${HOST}/ws`);
-
+console.log(ws.url)
 const game = document.getElementById("Game");
 const resetBtn = document.getElementById("resetBtn");
 const createGameBtn = document.getElementById("createGame")

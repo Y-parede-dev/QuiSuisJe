@@ -1,9 +1,15 @@
 :root {
+    // Colors:
     --primary_color: rgb(49, 48, 48);
     --secondary_color: rgb(12, 228, 243);
     --third_color: steelblue;
     --quad_color: slategrey;
+    // Fonts:
     --font-size-max-laytop: 8.9rem;
+    // Animations params:
+    --img-position-y-default: -5%;
+    --img-position-y-middle: 90%;
+    --img-position-y-bottom: 65%;
 }
 @media screen and (max-width: 800px) {
     :root {
