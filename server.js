@@ -5,21 +5,14 @@ const bodyParser = require("body-parser");
 const router = express.Router();
 // const db = require('./middlleware/dataBaseConnect')
 // db()
-
-
 const server = express();
 const expressWs = require('express-ws')
 const WebSocket = require('ws');
 const publicDir = fs.readdirSync(__dirname + "/public/Assets/images");
 let tt = [];
-
-
 publicDir.forEach(file=>{
     tt.push({name:file});
 });
-// router.get('/', (req,res)=>{
-//     res.sendFile(__dirname + '/public/index.html');
-// });
 
 server.use(cors()); 
 server.use(bodyParser.json()); 
@@ -32,11 +25,8 @@ server.use((req, res, next) => {
 });
 server.use(express.static(__dirname + '/public'));
 server.use(express.static(__dirname + '/public/Assets/images'));
-
 const wss = new WebSocket.Server({ server });
-// const wsRouter = express.Router();
 expressWs(server);
-
 router.ws('/ws', (ws, req) => {
   console.log('Client connected');
 
@@ -53,13 +43,9 @@ router.ws('/ws', (ws, req) => {
 
   ws.on('close', () => console.log('Client disconnected'));
 });
-
-
 router.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
-
 server.use(router);
-
 const port = process.env.PORT || 437;
 server.listen(port, ()=> {console.log('Serveur ouvert sur le port ' + port)});
