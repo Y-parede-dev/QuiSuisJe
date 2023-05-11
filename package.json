@@ -1,7 +1,7 @@
 {
   "name": "quisuisje",
-  "version": "0.8.0",
-  "description": "Jeux qui suis-je full js",
+  "version": "0.8.1",
+  "description": "Jeu qui suis-je full js",
   "main": "server.js",
   "scripts": {
     "sass": "sass --watch ./public/scss/main.scss:./public/css/Global.css",
