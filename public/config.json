@@ -6,6 +6,9 @@
         }
     },
     "game":{
-        "people_choice":false
+        "people_choice":false,
+        "timeoutPeople":{
+            "select":false
+        }
     }
 }

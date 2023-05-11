@@ -7,15 +7,17 @@
  */
 const selectPeople = (elt, parent, config) => {
     elt.addEventListener('click', (item) => {
-        if(config.game.people_choice==false){
-
+        
+        if(config.game.timeoutPeople.select){
+            return
+        }
+        if(!config.game.people_choice){
             const urlImgChoice = item.target.src
             const containerImageChoice = document.createElement('DIV')
             const backgroudImage = document.createElement('DIV')
             const arrow = document.createElement('BUTTON')
             const imageChoice = document.createElement('IMG')
             const name = document.createElement('P')
-
             arrow.textContent='<'
             backgroudImage.classList.add('border-l-grad-img')
             arrow.classList.add('btn_show_people_choice')
@@ -33,13 +35,21 @@ const selectPeople = (elt, parent, config) => {
             containerImageChoice.appendChild(backgroudImage)
             containerImageChoice.appendChild(name)
             parent.appendChild(containerImageChoice)
-
             showPeopleToggle(arrow, containerImageChoice)
-
             config.game.people_choice = !config.game.people_choice
             return            
         }
         elt.classList.toggle("people_down")
+        config.game.timeoutPeople.select = true
+        
+        const timout = setTimeout(()=>{
+            config.game.timeoutPeople.select = false
+            
+        },350)
+        return(()=>{
+            clearTimeout(timout)
+        })
+        
     })
 }
 /**
