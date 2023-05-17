@@ -1,4 +1,5 @@
-import * as configJson from '../config.json' assert {type:'json'}
+// import * as configJson from '../config.json' assert {type:'json'}
+import * as configJson from '../config.json'
 import createAndDestroyLoader from './Loader.mjs';
 import createGameBoard from './gameFonctions/gameStart.mjs';
 
