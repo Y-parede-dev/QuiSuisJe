@@ -42,10 +42,10 @@ wss.on('connection', (ws, req) => {
   ws.on('message', (message) => {
     console.log('Received message:', message.toString());
     if (message.toString() === 'getGameData') {
-        // ws.send(JSON.stringify(allNamesImg));
-      wss.clients.forEach(client => {
-          client.send(JSON.stringify(allNamesImg));
-      });
+        ws.send(JSON.stringify(allNamesImg));
+      // wss.clients.forEach(client => {
+      //     client.send(JSON.stringify(allNamesImg));
+      // });
     }
   });
 
