@@ -3,5 +3,6 @@ node_modules
 /server.*.*
 /public/Js/*
 /public/css/*
+/public/scss/*
 test.html
 /webpack.config.js
