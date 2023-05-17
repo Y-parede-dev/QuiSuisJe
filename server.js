@@ -26,24 +26,37 @@ server.use((req, res, next) => {
 });
 server.use(express.static(__dirname + '/public'));
 server.use(express.static(__dirname + '/public/Assets/images'));
-const wss = new WebSocket.Server({ server });
+// const wss = new WebSocket.Server({ server });
 // server.use('/ws', wsRouter)
-router.ws('/ws', (ws, req) => {
+server.ws('/ws', (ws, req) => {
+  console.log(`client ip: ${req.connection.remoteAddress}`)
   console.log('Client connected');
-
+  // console.log(expressWs.getWss())
   ws.on('message', (message) => {
     console.log('Received message:', message);
-    if (message === 'getGameData') {
-        ws.send(JSON.stringify(allNamesImg));
-      wss.clients.forEach(client => {
-        console.log(client)
-          client.send(JSON.stringify(tt));
-      });
+    getGameData(ws, message)
+    if (message === 'createInstance') {
+      ws.send(JSON.stringify(allNamesImg));
+      // console.log(wss.clients,'WSSClient')
+      // console.log(wss,'WSS')
+      // wss.clients.forEach(client => {
+      //   console.log(client)
+      //     client.send(JSON.stringify(tt));
+      // });
     }
   });
 
   ws.on('close', () => console.log('Client disconnected'));
 });
+const getGameData = (webS, mess) => {
+  if (mess === 'getGameData') {
+    webS.send(JSON.stringify(allNamesImg));
+  //   webServ.clients.forEach(client => {
+  //   console.log(client)
+  //     client.send(JSON.stringify(tt));
+  // });
+}
+}
 router.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
