@@ -19,12 +19,22 @@
     <header>
         <h1><a href="/">Qui suis-je by Bobby</a></h1>
         <!-- <h1>Qui suis-je by Bobby</h1> -->
-        <button class="resetBtn" id="resetBtn" type="reset">RESET GAME</button>
+        <nav id="navBar" class="nav-bar open">
+            <button id="toggleNav" class="toggle-nav">^</button>
+            <button class="resetBtn" id="resetBtn" type="reset">RESET GAME</button>
+        </nav>
     </header>
     <main>
         <section class="container_game">
-            <div id="Game" class="Game"></div>
-            <button class="createGame" id="createGame" type="button">CREATE GAME</button>
+            <div id="Game" class="Game">
+                <div class="menuP" id="menuP">
+                    <div class="menuP-btns">
+                        <button class="btn-menuP" id="createGame" type="button">Demo</button>
+                        <button class="btn-menuP unactive" id="createServer" type="button">Crée un server</button>
+                        <button class="btn-menuP unactive" id="listServers" type="button">liste des servers</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer id="footer">

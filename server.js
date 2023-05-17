@@ -11,7 +11,8 @@ const server = express();
 const WebSocket = require('ws');
 const publicDir = fs.readdirSync(__dirname + "/public/Assets/images");
 let allNamesImg = [];
-
+let rooms = [];
+let users = [];
 
 publicDir.forEach(file=>{
     allNamesImg.push({name:file});
@@ -39,14 +40,18 @@ const wss = new WebSocket.Server({ server });
 wss.on('connection', (ws, req) => {
   console.log('Client connected');
 
-  ws.on('message', (message) => {
+  ws.on('message', (message, body) => {
     console.log('Received message:', message.toString());
     if (message.toString() === 'getGameData') {
         ws.send(JSON.stringify(allNamesImg));
       // wss.clients.forEach(client => {
       //     client.send(JSON.stringify(allNamesImg));
       // });
-    }
+    }if (message.toString() === 'userData') {
+      users.push(body)
+      console.log(users)
+    
+     }
   });
 
   ws.on('close', () => console.log('Client disconnected'));
